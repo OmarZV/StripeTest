@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
     # Only update the card on file if we're adding a new one
     options.merge!(
       card_last4: params[:card_last4],
-      card_exp_month: params[:card_exp_month],
+      card_exp: params[:card_exp_month],
       card_exp_year: params[:card_exp_year],
       card_type: params[:card_brand]
     ) if params[:card_last4]
