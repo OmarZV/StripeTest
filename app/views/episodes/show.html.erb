@@ -13,5 +13,5 @@
 <% if current_user_subscribed? %>
 	OUR SECRET GAME OF THRONES
 <% else %>
-<%= link_to 'Subscribe To Watch', new_subscription_path, class: "btn btn-primary" %>
+<div data-no-turbolink><%= link_to 'Subscribe To Watch', new_subscription_path, class: "btn btn-primary" %></div>
 <% end %>

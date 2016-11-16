@@ -1,19 +1,16 @@
 jQuery ->
   Stripe.setPublishableKey($("meta[name='stripe-key']").attr("content"))
 
-  $('#payment-form').submit (event) ->
-    $form = $(this)
-
-    if $(".card-fields").hasClass("hidden")
-      # Use the default card
-      $form.get(0).submit()
-    else
-      # Disable the submit button to prevent repeated clicks
-      $form.find('button').prop 'disabled', true
-      Stripe.card.createToken $form, stripeResponseHandler
-
-    # Prevent the form from submitting with the default action
+$ ->
+  $form = $('#payment-form')
+  $form.submit (event) ->
+    # Disable the submit button to prevent repeated clicks:
+    $form.find('.submit').prop 'disabled', true
+    # Request a token from Stripe:
+    Stripe.card.createToken $form, stripeResponseHandler
+    # Prevent the form from being submitted:
     false
+  return
 
   $('.use-different-card').on "click", ->
     $(".card-on-file").hide()

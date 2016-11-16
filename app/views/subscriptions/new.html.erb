@@ -1,6 +1,6 @@
 <h1>Subscribe!</h1>
 
-<%= form_tag subscription_path, id: "payment-form" do %>
+<div data-no-turbolink><%= form_tag subscription_path, id: "payment-form" do %>
   <% if current_user.card_last4? %>
     <div class="card-on-file">
       <p>Your current card on file is:</p>
@@ -39,4 +39,4 @@
   </div>
 
   <button type="submit">Submit Payment</button>
-<% end %>
+<% end %></div>
